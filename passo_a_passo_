@@ -1,0 +1,24 @@
+passo a poasso django
+1   pip install django==2.2.3     instala o django -
+2.  django-admin startproject meusite .    - cria o projeto
+3.  python manage.py startapp blog   - inicia um app
+4.  registra o app na passta setings.py  'blog.apps.BlogConfig',
+5.  importa o include  ---from django.urls import path, include
+6. adiciona o caminho da url  ---
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('blog/', include('blog.urls'))
+    ]
+ 7.   cria o arquivo urls.py na pasta blog
+        imports
+        -from django.urls import path
+        -from . import views
+
+        urlpatterns = [
+            path('', views.index)
+        ]
+ 8. cria a funcão index no módulo view.py da pasta blog
+
+ def index(request):
+    return render(request, 'blog/index.html')
+9.  python manage.py runserver  ---- roda o servidor
